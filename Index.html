@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:\Users\domin\OneDrive\Desktop\wichtig\Programieren\VCS\Tic Tac Toe\style.css">
+    <title>Simple-Tic Tac Toe</title>
+</head>
+<style>
+h1 {
+  display: flex;
+  justify-content: center;
+}
+.col { 
+  height: 280px;
+  width: 280px;
+  margin: 10px 10px 10px 10px;
+}
+.container { 
+  background-color: grey;
+}
+
+h2 { 
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+.score { 
+  font-size: 1550%;
+}
+</style>
+<body>
+  <button onclick="ClearCach()"> Clear Cach </button>
+    <h1>Simple-Tic Tac Toe</h1>
+
+    <div class="row"> <!-- Row for the Score and the Game-->
+      <div class="card" style="display: flex; width: 40%;">     
+       <h2 id="Score_O" class="score">O = 0 </h2>
+       <h2 id="Score_X" class="score" style="margin-top: 200px;">X = 0 </h2>
+    </div>
+
+      <div class="container text-center card" style="width: 60%;"> <!-- container for the game UI-->
+      
+        <div class="row"> <!-- Row 1 -->
+          <div id="1" class="col card" onclick="Trigger(1)" style="display: flex; justify-content: center;">
+            
+          </div>
+          <div id="2" class="col card" onclick="Trigger(2)" style="display: flex; justify-content: center;">
+            
+          </div>
+          <div id="3" class="col card" onclick="Trigger(3)" style="display: flex; justify-content: center;">
+            
+          </div>
+        </div>
+        <div class="row"> <!-- Row 2 -->
+          <div id="4" class="col card" onclick="Trigger(4)" style="display: flex; justify-content: center;">
+            
+          </div>
+          <div id="5" class="col card" onclick="Trigger(5)" style="display: flex; justify-content: center;">
+            
+          </div>
+          <div id="6" class="col card" onclick="Trigger(6)" style="display: flex; justify-content: center;">
+            
+          </div>
+        </div> 
+        <div class="row">  <!-- Row 3 -->
+          <div id="7" class="col card" onclick="Trigger(7)" style="display: flex; justify-content: center;">
+            
+          </div>
+          <div id="8" class="col card" onclick="Trigger(8)" style="display: flex; justify-content: center;">
+            
+          </div>
+          <div id="9" class="col card" onclick="Trigger(9)" style="display: flex; justify-content: center;">
+            
+          </div>
+        </div>  
+      </div>
+    </div>
+      <script>
+        let Score_X = 0 
+        let Score_O = 0 
+        let RoundCount = 0 // RoundCount = Ammount of placed cards , is for Euqal 
+
+        let ClearRound = 1 // Round Count for the Rounds to clear
+        let round = 0      // round Count for what player is on his move
+        Zahl = [] //Zahl = filled cards in Numbers 
+        let Player1 = [] //what Cards did P1 filled
+        let Player2 = [] //what Cards did P2 filled
+
+        
+        function Trigger(para_Trigger) { //founction for x and o switches
+            var el = document.getElementById(para_Trigger);
+            RoundCount += 1 
+          
+          if (Zahl.includes(para_Trigger)) { //if Number is included do: 
+            round -= 1 
+        }
+          else {                             // if Number isnt included do: 
+            
+            
+            if (round%2 == 0) { 
+            el.innerHTML="<img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20201230114437/x.png\" width=\"200px\" height=\"200px\">"; // set Card to X.png
+            Player1.push(para_Trigger) 
+        }
+            else { 
+                el.innerHTML="<img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20201230114434/o-300x300.png\" width=\"200px\" height=\"200px\">"; //set card to O.png
+                Player2.push(para_Trigger) 
+        }
+    }
+            Zahl.push(para_Trigger)
+            round += 1
+            CheckWin()
+            
+ 
+            }   
+
+           function ClearCach() { // Clear Cach , Set everything to 0 again
+            
+            while (ClearRound < 10) { 
+                var la = document.getElementById(ClearRound);
+                la.innerHTML = " "
+                ClearRound += 1
+            }
+            ClearRound = 1
+            Zahl = []
+            Player1 = []
+            Player2 = []
+            RoundCount = 0
+        }
+
+        function CheckWin() { // Check Win 
+            console.log(Player1)
+            if (Player1.includes(1) && Player1.includes(2) && Player1.includes(3) || Player1.includes(4) && Player1.includes(5) && Player1.includes(6) || Player1.includes(7) && Player1.includes(8) && Player1.includes(9) || Player1.includes(1) && Player1.includes(4) && Player1.includes(7) || Player1.includes(2) && Player1.includes(5) && Player1.includes(8) || Player1.includes(3) && Player1.includes(6) && Player1.includes(9) || Player1.includes(1) && Player1.includes(5) && Player1.includes(9) || Player1.includes(3) && Player1.includes(5) && Player1.includes(7)) {
+            alert("Win for X")
+            ClearCach()
+            Score_X += 1 
+            }
+            else if (Player2.includes(1) && Player2.includes(2) && Player2.includes(3) || Player2.includes(4) && Player2.includes(5) && Player2.includes(6) || Player2.includes(7) && Player2.includes(8) && Player2.includes(9) || Player2.includes(1) && Player2.includes(4) && Player2.includes(7) || Player2.includes(2) && Player2.includes(5) && Player2.includes(8) || Player2.includes(3) && Player2.includes(6) && Player2.includes(9) || Player2.includes(1) && Player2.includes(5) && Player2.includes(9) || Player2.includes(3) && Player2.includes(5) && Player2.includes(7)) {
+            alert("Win for O")
+            ClearCach()
+            Score_O += 1
+            }
+            else if (RoundCount >= 9) { 
+              alert("Equal")
+              ClearCach()
+            }
+            document.getElementById("Score_O").innerHTML =  "O = " + Score_O 
+            document.getElementById("Score_X").innerHTML =  "X = " + Score_X 
+        } 
+
+     
+            </script>
+</body>
+</html>
