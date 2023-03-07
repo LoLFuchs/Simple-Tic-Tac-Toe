@@ -9,17 +9,25 @@
     <title>Simple-Tic Tac Toe</title>
 </head>
 <style>
+  body { 
+    background-image: url(https://wallpapercrafter.com/th800/46306-black-3d-abstract-cube-hd-4k-simple-background.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
 h1 {
   display: flex;
   justify-content: center;
+  color: #ededed;
 }
 .col { 
   height: 280px;
   width: 280px;
   margin: 10px 10px 10px 10px;
+  background: #adadad
 }
 .container { 
-  background-color: grey;
+  background-color:#80808069;
 }
 
 h2 { 
@@ -29,19 +37,21 @@ h2 {
 }
 .score { 
   font-size: 1550%;
+  color: #191919;
 }
+
 </style>
 <body>
-  <button onclick="ClearCach()"> Clear Cach </button>
+  <button onclick="ClearCach()" hidden> Clear Cach </button>
     <h1>Simple-Tic Tac Toe</h1>
 
-    <div class="row"> <!-- Row for the Score and the Game-->
-      <div class="card" style="display: flex; width: 40%;">     
+    <div class="row" style="width: 99%; display: flex;justify-content: center;"> <!-- Row for the Score and the Game-->
+      <div class="card border-0" style="display: flex; width: 40%; background: #80808069;">     
        <h2 id="Score_O" class="score">O = 0 </h2>
        <h2 id="Score_X" class="score" style="margin-top: 200px;">X = 0 </h2>
     </div>
 
-      <div class="container text-center card" style="width: 60%;"> <!-- container for the game UI-->
+      <div class="container text-center card border-0" style="width: 50%;"> <!-- container for the game UI-->
       
         <div class="row"> <!-- Row 1 -->
           <div id="1" class="col card" onclick="Trigger(1)" style="display: flex; justify-content: center;">
