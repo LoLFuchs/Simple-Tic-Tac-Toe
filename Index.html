@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="C:\Users\domin\OneDrive\Desktop\wichtig\Programieren\VCS\Tic Tac Toe\style.css">
     <title>Simple-Tic Tac Toe</title>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 <style>
   body { 
     background-image: url(https://wallpapercrafter.com/th800/46306-black-3d-abstract-cube-hd-4k-simple-background.jpg);
@@ -39,11 +41,32 @@ h2 {
   font-size: 1550%;
   color: #191919;
 }
+.row { 
+  display: flex;
+  justify-self: center;
+}
 
 </style>
 <body>
   <button onclick="ClearCach()" hidden> Clear Cach </button>
-    <h1>Simple-Tic Tac Toe</h1>
+    <div class="row" style="height: 10%; background:#85D1E000; width: 99%;"> 
+        <div class="card border-0" style="background:#85D1E000; width: 14%;">
+          <div class="dropdown" style="display: flex;">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+            Dropdown button
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+             <li><a class="dropdown-item active" onclick="ClearCach()">Clear Cach</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="https://github.com/LoLFuchs" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="card border-0" style="background:#85D1E000; width: 50%; padding-left: 400px;"><h1>Simple-Tic Tac Toe</h1></div>
+    </div>
+
 
     <div class="row" style="width: 99%; display: flex;justify-content: center;"> <!-- Row for the Score and the Game-->
       <div class="card border-0" style="display: flex; width: 40%; background: #80808069;">     
@@ -88,6 +111,7 @@ h2 {
         </div>  
       </div>
     </div>
+
       <script>
         let Score_X = 0 
         let Score_O = 0 
