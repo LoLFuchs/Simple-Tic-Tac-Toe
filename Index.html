@@ -82,6 +82,8 @@ img {
           </div>
         </div>
     </div>
+    
+    
 
   <div style="display: flex; justify-content: center;">
     <div class="row"  id="container flex-init-setup flex-ppal-setup" style="width: 95vw; display: flex;justify-content: center;"> <!-- Row for the Score and the Game-->
@@ -89,8 +91,8 @@ img {
        <h2 id="Score_O" class="score">O = 0 </h2>
        <h2 id="Score_X" class="score" style="margin-top: 10vw;">X = 0 </h2>
     </div>
-
-      <div class="container text-center card border-0" style="width: 50vw;"> <!-- container for the game UI-->
+    <div id="IfRow" hidden style="margin-bottom: 20px;"></div>
+      <div class="container text-center card border-0 " style="width: 50vw;"> <!-- container for the game UI-->
       
         <div class="row"> <!-- Row 1 -->
           <div id="1" class="col card" onclick="Trigger(1)" style="display: flex; justify-content: center;">
@@ -128,6 +130,8 @@ img {
       </div>
     </div>
   </div>
+
+
 
       <script>
         let Score_X = 0 
@@ -207,6 +211,25 @@ img {
           Score_X = 0
           CheckWin()
         }
+
+
+             // Get the IfRow element
+          const ifRow = document.getElementById("IfRow");
+
+              // Function to handle window resize events
+          function handleResize() {
+            if (window.innerWidth > 900) {
+              ifRow.setAttribute("hidden", true);
+            } else {
+              ifRow.removeAttribute("hidden");
+           }
+          }
+
+          // Add event listener to the window object
+          window.addEventListener("resize", handleResize);
+
+          // Call the handleResize function initially to set the initial state of the IfRow element
+          handleResize();
 
      
             </script>
